@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eaglez Fly Alone | Premium Streetwear</title>
+  <style>
+    :root {
+      --bg: #05070a;
+      --panel: #0b1117;
+      --panel-soft: #0f1721;
+      --text: #ecf2f7;
+      --muted: #9fb0bd;
+      --line: #1d2a36;
+      --red: #cf1d2d;
+      --green: #1ea65b;
+      --gold: #d4af37;
+      --radius: 18px;
+      --shadow: 0 20px 70px rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(980px 640px at 10% 4%, rgba(207, 29, 45, 0.25), transparent 60%),
+        radial-gradient(980px 640px at 92% 12%, rgba(30, 166, 91, 0.17), transparent 64%),
+        linear-gradient(180deg, #040608, #060b10);
+      min-height: 100vh;
+    }
+
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 20px 16px 70px; }
+
+    .topbar,
+    .hero,
+    .card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(15, 23, 33, 0.93), rgba(11, 17, 23, 0.84));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .topbar {
+      border-radius: 22px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand img {
+      width: 50px;
+      height: 50px;
+      border-radius: 13px;
+      border: 1px solid rgba(212, 175, 55, 0.48);
+      object-fit: cover;
+      background: #0b0f12;
+    }
+    .brand h1 { margin: 0; font-size: 1.2rem; letter-spacing: 0.3px; }
+    .tagline { margin-top: 3px; color: var(--muted); font-size: 0.78rem; letter-spacing: 0.2px; }
+
+    .pill {
+      padding: 8px 13px;
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      color: var(--gold);
+      background: rgba(212, 175, 55, 0.07);
+      border-radius: 999px;
+      font-size: 0.76rem;
+      white-space: nowrap;
+    }
+
+    .hero {
+      margin-top: 14px;
+      border-radius: 24px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(1.5rem, 3.4vw, 2.5rem);
+      line-height: 1.12;
+      max-width: 760px;
+    }
+
+    .hero p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      max-width: 760px;
+      line-height: 1.45;
+    }
+
+    .hero-logo {
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid #233341;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.45);
+    }
+
+    .layout {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 16px;
+    }
+
+    .card {
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .section-title { margin: 0 0 4px; font-size: 1.08rem; }
+    .sub { margin: 0 0 14px; color: var(--muted); font-size: 0.84rem; line-height: 1.35; }
+
+    .products { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+
+    .product {
+      border: 1px solid #263847;
+      border-radius: 14px;
+      background: rgba(7, 12, 17, 0.9);
+      padding: 12px;
+      transition: transform .16s ease, border-color .16s ease;
+    }
+    .product:hover { transform: translateY(-1px); border-color: #355067; }
+    .name { margin: 0; font-weight: 700; font-size: .98rem; }
+    .sku { margin-top: 3px; color: var(--muted); font-size: .74rem; }
+    .price { margin-top: 8px; color: var(--gold); font-weight: 700; font-size: 1.05rem; }
+
+    .qty-row { margin-top: 9px; display: grid; grid-template-columns: 1fr auto auto; gap: 6px; }
+
+    input, select {
+      width: 100%;
+      border: 1px solid #2c4152;
+      border-radius: 12px;
+      background: #091018;
+      color: var(--text);
+      padding: 10px 10px;
+      font: inherit;
+      font-size: .9rem;
+      outline: none;
+    }
+    input:focus, select:focus { border-color: rgba(212, 175, 55, 0.8); }
+
+    label { display: block; margin: 10px 0 6px; color: var(--muted); font-size: .78rem; }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 9px 12px;
+      font-weight: 700;
+      letter-spacing: .15px;
+      cursor: pointer;
+      transition: opacity .15s ease, transform .15s ease;
+    }
+    button:hover { opacity: .95; transform: translateY(-1px); }
+
+    .btn-primary { background: linear-gradient(140deg, #d92a2a, #d4af37); color: #061017; }
+    .btn-alt { background: linear-gradient(140deg, #1ea65b, #a8b93b); color: #061017; }
+    .btn-ghost { background: transparent; color: var(--text); border: 1px solid #2c4152; }
+
+    .step {
+      border: 1px solid #263847;
+      border-radius: 12px;
+      padding: 10px;
+      background: rgba(8, 12, 17, .72);
+      margin-bottom: 10px;
+    }
+    .step .title { font-weight: 700; font-size: .9rem; }
+    .step .text { color: var(--muted); font-size: .78rem; margin-top: 4px; line-height: 1.35; }
+
+    .btns { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 12px; }
+
+    .totals {
+      margin-top: 12px;
+      border: 1px dashed #33495d;
+      border-radius: 12px;
+      padding: 11px;
+      background: rgba(6, 10, 15, .75);
+    }
+    .total-line { display: flex; justify-content: space-between; font-size: .9rem; margin: 3px 0; }
+
+    .status {
+      margin-top: 10px;
+      min-height: 42px;
+      border: 1px solid #293b4b;
+      border-radius: 12px;
+      padding: 10px;
+      background: rgba(7, 11, 16, .84);
+      font-size: .84rem;
+      line-height: 1.35;
+    }
+    .status.ok { border-color: rgba(30, 166, 91, 0.5); }
+    .status.err { border-color: rgba(217, 42, 42, 0.55); }
+
+    .checkout-link {
+      display: none;
+      margin-top: 10px;
+      font-size: .85rem;
+      color: #9dd5ff;
+      word-break: break-all;
+    }
+
+    details {
+      margin-top: 12px;
+      border: 1px solid #263847;
+      border-radius: 12px;
+      background: rgba(7, 11, 16, .72);
+      padding: 8px 10px;
+    }
+    summary { cursor: pointer; color: var(--muted); font-size: .78rem; }
+
+    pre {
+      margin: 8px 0 0;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #243443;
+      background: #05090d;
+      color: #d4e3f0;
+      font-size: .73rem;
+      white-space: pre-wrap;
+      overflow: auto;
+      max-height: 220px;
+    }
+
+    .footnote { margin-top: 12px; color: var(--muted); font-size: .75rem; line-height: 1.35; }
+
+    @media (max-width: 980px) {
+      .hero, .layout { grid-template-columns: 1fr; }
+      .pill { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .products { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <img src="assets/efa-logo.svg" alt="Eaglez Fly Alone logo" />
+        <div>
+          <h1>Eaglez Fly Alone</h1>
+          <div class="tagline">SEE THRU X SOAR ABOVE.</div>
+        </div>
+      </div>
+      <div class="pill">Premium Streetwear • Secure Stripe Checkout</div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h2>Fast, clean checkout for premium Eaglez drops.</h2>
+        <p>
+          Pick your pieces, apply a coupon, and create a secure Stripe checkout session.
+          This interface now focuses on a shopper-friendly flow instead of raw code output.
+        </p>
+      </div>
+      <img class="hero-logo" src="assets/efa-logo.svg" alt="Eaglez crest artwork" />
+    </section>
+
+    <section class="layout">
+      <article class="card">
+        <h3 class="section-title">1) Build your cart</h3>
+        <p class="sub">Choose quantities for each SKU. Coupon preview supports SOAR10 and FLIGHT15.</p>
+
+        <div class="products" id="products"></div>
+
+        <div class="totals">
+          <div class="total-line"><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+          <div class="total-line"><span>Discount</span><strong id="discount">$0.00</strong></div>
+          <div class="total-line"><span>Total</span><strong id="total">$0.00</strong></div>
+        </div>
+      </article>
+
+      <aside class="card">
+        <h3 class="section-title">2) Checkout Session</h3>
+        <p class="sub">No raw JSON by default—just clear actions and result messages. Auto-demo mode works when backend is unavailable.</p>
+
+        <div class="step">
+          <div class="title">Step A · Customer details</div>
+          <div class="text">Add coupon, currency, and customer handle.</div>
+        </div>
+
+        <label for="coupon">Coupon (optional)</label>
+        <input id="coupon" placeholder="SOAR10" />
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div>
+            <label for="currency">Currency</label>
+            <select id="currency">
+              <option>USD</option>
+              <option>CAD</option>
+              <option>EUR</option>
+            </select>
+          </div>
+          <div>
+            <label for="customer">Customer</label>
+            <input id="customer" value="clintblaque" />
+          </div>
+        </div>
+
+        <div class="btns">
+          <button class="btn-primary" id="btnCreate" type="button">Create Session</button>
+          <button class="btn-alt" id="btnCreateAndGo" type="button">Create & Redirect</button>
+          <button class="btn-ghost" id="btnClear" type="button">Clear Cart</button>
+        </div>
+
+        <div id="statusBox" class="status">Ready to create a checkout session.</div>
+        <a id="checkoutLink" class="checkout-link" target="_blank" rel="noopener"></a>
+
+        <details>
+          <summary>Developer preview (optional)</summary>
+          <pre id="requestOut">Request payload preview appears here…</pre>
+        </details>
+
+        <p class="footnote">Tip: Backend should validate SKUs and map them to Stripe Price IDs server-side.</p>
+      </aside>
+    </section>
+  </div>
+
+  <script>
+    const PRODUCT_CATALOG = [
+      { sku: "EFA-TEE-BLK", name: "Signature Tee — Black", price: 110 },
+      { sku: "EFA-TEE-WHT", name: "Signature Tee — White", price: 110 },
+      { sku: "EFA-HOOD-RED", name: "Velocity Hoodie — Red", price: 150 },
+      { sku: "EFA-HAT-BLK", name: "Apex Hat — Black", price: 60 }
+    ];
+
+    const productsEl = document.getElementById("products");
+    const subtotalEl = document.getElementById("subtotal");
+    const discountEl = document.getElementById("discount");
+    const totalEl = document.getElementById("total");
+    const requestOut = document.getElementById("requestOut");
+    const statusBox = document.getElementById("statusBox");
+    const checkoutLink = document.getElementById("checkoutLink");
+
+    const couponEl = document.getElementById("coupon");
+    const currencyEl = document.getElementById("currency");
+    const customerEl = document.getElementById("customer");
+
+    function safeCurrency(code) {
+      const c = String(code || "USD").trim().toUpperCase();
+      return /^[A-Z]{3}$/.test(c) ? c : "USD";
+    }
+
+    function formatMoney(amount, currency = "USD") {
+      try {
+        return new Intl.NumberFormat("en-US", { style: "currency", currency: safeCurrency(currency) }).format(amount);
+      } catch {
+        return `$${Number(amount || 0).toFixed(2)}`;
+      }
+    }
+
+    function setStatus(message, type = "") {
+      statusBox.textContent = message;
+      statusBox.classList.remove("ok", "err");
+      if (type) statusBox.classList.add(type);
+    }
+
+    function renderProducts() {
+      productsEl.innerHTML = "";
+      PRODUCT_CATALOG.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "product";
+        card.innerHTML = `
+          <p class="name">${item.name}</p>
+          <div class="sku">${item.sku}</div>
+          <div class="price">${formatMoney(item.price)}</div>
+          <div class="qty-row">
+            <input type="number" min="0" max="99" step="1" value="${index < 2 ? 1 : 0}" data-sku="${item.sku}" class="qty-input" />
+            <button class="btn-ghost" data-dec="${item.sku}" type="button">-1</button>
+            <button class="btn-ghost" data-add="${item.sku}" type="button">+1</button>
+          </div>
+        `;
+        productsEl.appendChild(card);
+      });
+    }
+
+    function collectItems() {
+      const inputs = productsEl.querySelectorAll(".qty-input");
+      const items = [];
+      inputs.forEach((input) => {
+        const qty = Math.max(0, Math.min(99, Number.parseInt(input.value || "0", 10) || 0));
+        input.value = qty;
+        if (qty > 0) items.push({ sku: input.dataset.sku, qty });
+      });
+      return items;
+    }
+
+    function couponDiscountRate(coupon) {
+      const c = String(coupon || "").trim().toUpperCase();
+      if (c === "SOAR10") return 0.10;
+      if (c === "FLIGHT15") return 0.15;
+      return 0;
+    }
+
+    function previewTotals() {
+      const items = collectItems();
+      const subtotal = items.reduce((sum, item) => {
+        const product = PRODUCT_CATALOG.find((p) => p.sku === item.sku);
+        return sum + (product ? product.price * item.qty : 0);
+      }, 0);
+
+      const discount = subtotal * couponDiscountRate(couponEl.value);
+      const total = subtotal - discount;
+      const currency = safeCurrency(currencyEl.value);
+
+      subtotalEl.textContent = formatMoney(subtotal, currency);
+      discountEl.textContent = formatMoney(discount, currency);
+      totalEl.textContent = formatMoney(total, currency);
+    }
+
+    function buildRequestPayload() {
+      const payload = {
+        items: collectItems(),
+        coupon: couponEl.value.trim() || null,
+        currency: safeCurrency(currencyEl.value),
+        customer: customerEl.value.trim() || null
+      };
+      requestOut.textContent = JSON.stringify(payload, null, 2);
+      return payload;
+    }
+
+    function tryParseJson(text) {
+      try { return JSON.parse(text); } catch { return null; }
+    }
+
+    function showCheckoutLink(url) {
+      if (!url) {
+        checkoutLink.style.display = "none";
+        checkoutLink.removeAttribute("href");
+        checkoutLink.textContent = "";
+        return;
+      }
+      checkoutLink.href = url;
+      checkoutLink.textContent = `Open checkout: ${url}`;
+      checkoutLink.style.display = "block";
+    }
+
+    function buildDemoSession(payload) {
+      const orderId = `EFA-DEMO-${Date.now()}`;
+      const query = new URLSearchParams({ order_id: orderId, session_id: "demo_session" });
+      return {
+        orderId,
+        checkoutUrl: `${location.origin}/success.html?${query.toString()}`,
+        mode: "demo"
+      };
+    }
+
+    async function requestSession(payload) {
+      try {
+        const res = await fetch("/eaglez/checkout/session", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        const text = await res.text();
+        const data = tryParseJson(text);
+
+        if (res.ok) return { ok: true, data };
+
+        // Static-server fallback: no API backend available
+        if ([404, 405, 501].includes(res.status)) {
+          return { ok: true, data: buildDemoSession(payload), demo: true };
+        }
+
+        return { ok: false, status: res.status, data };
+      } catch (err) {
+        // Network fallback (e.g., backend down)
+        return { ok: true, data: buildDemoSession(payload), demo: true, networkError: String(err) };
+      }
+    }
+
+    async function createSession(redirectAfter = false) {
+      const payload = buildRequestPayload();
+      showCheckoutLink("");
+
+      if (!payload.items.length) {
+        setStatus("Add at least one item before creating checkout session.", "err");
+        return;
+      }
+
+      setStatus("Creating checkout session…");
+      const result = await requestSession(payload);
+
+      if (!result.ok) {
+        const errorMessage = result.data && result.data.error ? result.data.error : "Please try again.";
+        setStatus(`Could not create session (HTTP ${result.status}). ${errorMessage}`, "err");
+        return;
+      }
+
+      const data = result.data || {};
+      const orderPart = data.orderId ? ` Order ID: ${data.orderId}.` : "";
+      const demoPart = result.demo ? " Demo mode enabled (backend not detected)." : "";
+      setStatus(`Session created successfully.${orderPart}${demoPart}`, "ok");
+
+      if (data.checkoutUrl) {
+        showCheckoutLink(data.checkoutUrl);
+        if (redirectAfter) window.location.href = data.checkoutUrl;
+      }
+    }
+
+    document.addEventListener("click", (event) => {
+      const addBtn = event.target.closest("button[data-add]");
+      const decBtn = event.target.closest("button[data-dec]");
+
+      if (addBtn) {
+        const input = productsEl.querySelector(`input[data-sku="${addBtn.dataset.add}"]`);
+        if (!input) return;
+        input.value = Math.min(99, (Number.parseInt(input.value || "0", 10) || 0) + 1);
+      }
+
+      if (decBtn) {
+        const input = productsEl.querySelector(`input[data-sku="${decBtn.dataset.dec}"]`);
+        if (!input) return;
+        input.value = Math.max(0, (Number.parseInt(input.value || "0", 10) || 0) - 1);
+      }
+
+      if (addBtn || decBtn) {
+        previewTotals();
+        buildRequestPayload();
+      }
+    });
+
+    productsEl.addEventListener("input", (event) => {
+      if (!event.target.classList.contains("qty-input")) return;
+      previewTotals();
+      buildRequestPayload();
+    });
+
+    couponEl.addEventListener("input", () => {
+      previewTotals();
+      buildRequestPayload();
+    });
+
+    currencyEl.addEventListener("change", previewTotals);
+
+    document.getElementById("btnCreate").addEventListener("click", () => createSession(false));
+    document.getElementById("btnCreateAndGo").addEventListener("click", () => createSession(true));
+    document.getElementById("btnClear").addEventListener("click", () => {
+      productsEl.querySelectorAll(".qty-input").forEach((input) => {
+        input.value = 0;
+      });
+      couponEl.value = "";
+      previewTotals();
+      buildRequestPayload();
+      showCheckoutLink("");
+      setStatus("Cart cleared.");
+    });
+
+    renderProducts();
+    previewTotals();
+    buildRequestPayload();
+  </script>
+</body>
+</html>

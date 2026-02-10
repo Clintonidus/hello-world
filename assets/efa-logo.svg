@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Eaglez Fly Alone corporate crest logo</title>
+  <desc id="desc">Business-style crest with shield, abstract eagle wings, and EAGLEZ FLY ALONE wordmark in red and green.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#06111b"/>
+      <stop offset="1" stop-color="#04070b"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e1092b"/>
+      <stop offset="1" stop-color="#9a041e"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1ec06e"/>
+      <stop offset="1" stop-color="#0d6a42"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="900" fill="url(#bg)"/>
+
+  <path d="M450 112 690 205 646 684 450 790 254 684 210 205Z" fill="#2d3440"/>
+  <path d="M450 140 664 223 627 666 450 762 273 666 236 223Z" fill="url(#shield)" filter="url(#shadow)"/>
+
+  <ellipse cx="450" cy="242" rx="52" ry="36" fill="#f4f7fb"/>
+  <ellipse cx="450" cy="242" rx="31" ry="22" fill="#cf102f"/>
+  <circle cx="450" cy="242" r="10" fill="#0a1118"/>
+
+  <path d="M450 300c-31 0-58 19-73 50 29-4 52 5 73 27 21-22 44-31 73-27-15-31-42-50-73-50Z" fill="#f7fafc" stroke="#182430" stroke-width="6"/>
+  <path d="M450 329 522 452 450 500 378 452Z" fill="#0f774a" stroke="#0a3c29" stroke-width="7"/>
+
+  <path d="M356 340c-73 3-132 31-171 87 76-10 129 6 177 50 0-54-2-95-6-137Z" fill="url(#green)" stroke="#0d4f34" stroke-width="6"/>
+  <path d="M544 340c73 3 132 31 171 87-76-10-129 6-177 50 0-54 2-95 6-137Z" fill="url(#green)" stroke="#0d4f34" stroke-width="6"/>
+
+  <path d="M398 500c-26 19-41 44-45 75 30-15 53-19 97-11-20-22-36-43-52-64Z" fill="#f2f6fb"/>
+  <path d="M502 500c26 19 41 44 45 75-30-15-53-19-97-11 20-22 36-43 52-64Z" fill="#f2f6fb"/>
+
+  <text x="450" y="700" text-anchor="middle" font-size="104" letter-spacing="2" font-family="Segoe UI, Arial, sans-serif" font-weight="800" fill="#ee1437" stroke="#071019" stroke-width="9" paint-order="stroke">EAGLEZ</text>
+  <text x="450" y="770" text-anchor="middle" font-size="66" letter-spacing="3" font-family="Segoe UI, Arial, sans-serif" font-weight="700" fill="#10b06a" stroke="#071019" stroke-width="6" paint-order="stroke">FLY ALONE</text>
+</svg>

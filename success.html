@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eaglez | Checkout Success</title>
+  <style>
+    body{margin:0;background:#05070a;color:#e7eef5;font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
+    .wrap{max-width:760px;margin:80px auto;padding:0 16px}
+    .card{border:1px solid #223240;border-radius:18px;background:#0b1117;padding:22px}
+    h1{margin:0 0 8px}
+    p{color:#9fb0bd}
+    .meta{margin-top:14px;border:1px dashed #33495d;border-radius:12px;padding:10px;background:#080d13}
+    .row{display:flex;justify-content:space-between;margin:5px 0}
+    a{color:#86c8ff}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Payment Session Ready ✅</h1>
+      <p>Your checkout flow completed in demo/success mode.</p>
+      <div class="meta">
+        <div class="row"><span>Order ID</span><strong id="orderId">-</strong></div>
+        <div class="row"><span>Session ID</span><strong id="sessionId">-</strong></div>
+      </div>
+      <p><a href="/">← Back to storefront</a></p>
+    </div>
+  </div>
+  <script>
+    const p = new URLSearchParams(location.search);
+    document.getElementById('orderId').textContent = p.get('order_id') || '(unknown)';
+    document.getElementById('sessionId').textContent = p.get('session_id') || '(unknown)';
+  </script>
+</body>
+</html>
